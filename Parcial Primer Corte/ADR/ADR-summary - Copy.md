@@ -21,7 +21,7 @@ Cada ADR describe un cambio arquitectónico concreto en el sistema.
 | ADR-07 | Prototype | Copia manual de personas | Clonación controlada de Person |
 | ADR-08 | Singleton | Configuración DB dispersa | Singleton DatabaseSettings |
 | ADR-09 | Factory | Conversión Entity → DTO duplicada | DTOFactory |
-| ADR-11 | Factory | Creación inconsistente de pagos | PaymentFactory |
+| ADR-10 | Factory | Creación inconsistente de pagos | PaymentFactory |
 
 ---
 
