@@ -1,4 +1,4 @@
-# ADR-11 — Implementación de Factory Pattern para creación de pagos
+# ADR-10 — Implementación de Factory Pattern para creación de pagos
 
 ## Estado
 
