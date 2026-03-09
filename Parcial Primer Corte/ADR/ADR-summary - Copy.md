@@ -242,7 +242,7 @@ Factory
 
 ---
 
-# ADR-11 — Factory para Creación de Pagos
+# ADR-10 — Factory para Creación de Pagos
 
 ## Contexto
 La inicialización de pagos ocurre directamente en los servicios. :contentReference[oaicite:4]{index=4}
