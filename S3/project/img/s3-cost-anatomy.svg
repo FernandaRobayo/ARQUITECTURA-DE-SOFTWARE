@@ -1,0 +1,86 @@
+<svg width="920" height="560" viewBox="0 0 920 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cost-title cost-desc">
+  <title id="cost-title">Mapa de costos de Amazon S3</title>
+  <desc id="cost-desc">Cuatro factores clave del costo en Amazon S3: almacenamiento, solicitudes, transferencia y retrieval.</desc>
+
+  <defs>
+    <linearGradient id="co-bg" x1="44" y1="32" x2="884" y2="528" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8F5F2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="920" height="560" rx="34" fill="#FAF7F5"/>
+  <rect x="34" y="32" width="852" height="496" rx="28" fill="url(#co-bg)" stroke="#E7D9D1"/>
+
+  <!-- Title -->
+  <text x="64" y="82" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700">Cómo se calcula el costo de Amazon S3</text>
+  <text x="64" y="114" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="15">Analiza volumen, solicitudes, egreso y recuperación para evitar sorpresas.</text>
+
+  <!-- Insight banner — FIXED: text was fill="#E7F2FF" (invisible on white) -->
+  <rect x="64" y="136" width="792" height="68" rx="16" fill="#EDE6E1" stroke="#D4C5BC"/>
+  <text x="92" y="162" fill="#6D8FA4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.6">LECTURA CLAVE</text>
+  <text x="92" y="186" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">No existe una tarifa única: la clase correcta depende del patrón real de acceso a los datos.</text>
+
+  <!-- ─── Card 1: Almacenamiento ─── -->
+  <rect x="64" y="224" width="380" height="140" rx="18" fill="#FFFFFF" stroke="#E0D5CE"/>
+
+  <circle cx="110" cy="294" r="24" fill="#6D8FA4"/>
+  <text x="110" y="301" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">1</text>
+
+  <text x="148" y="274" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">Almacenamiento</text>
+  <text x="148" y="297" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">Volumen total, clase usada</text>
+  <text x="148" y="314" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">y permanencia de los datos.</text>
+
+  <!-- Bar indicator -->
+  <rect x="148" y="332" width="152" height="10" rx="5" fill="#6D8FA4"/>
+  <rect x="306" y="332" width="76" height="10" rx="5" fill="#BFA2DB"/>
+
+  <!-- ─── Card 2: Solicitudes API ─── -->
+  <rect x="476" y="224" width="380" height="140" rx="18" fill="#FFFFFF" stroke="#E0D5CE"/>
+
+  <circle cx="522" cy="294" r="24" fill="#6D8FA4"/>
+  <text x="522" y="301" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">2</text>
+
+  <text x="560" y="274" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">Solicitudes API</text>
+  <text x="560" y="297" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">PUT, GET, LIST y operaciones</text>
+  <text x="560" y="314" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">de administración del bucket.</text>
+
+  <!-- Bar indicator -->
+  <rect x="560" y="332" width="126" height="10" rx="5" fill="#6D8FA4"/>
+  <rect x="692" y="332" width="96" height="10" rx="5" fill="#BFA2DB"/>
+
+  <!-- ─── Card 3: Transferencia ─── -->
+  <rect x="64" y="384" width="380" height="140" rx="18" fill="#FFFFFF" stroke="#E0D5CE"/>
+
+  <circle cx="110" cy="454" r="24" fill="#6D8FA4"/>
+  <text x="110" y="461" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">3</text>
+
+  <text x="148" y="434" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">Transferencia</text>
+  <text x="148" y="457" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">Egreso y tráfico de salida</text>
+  <text x="148" y="474" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">hacia usuarios y sistemas externos.</text>
+
+  <!-- Bar indicator -->
+  <rect x="148" y="492" width="168" height="10" rx="5" fill="#6D8FA4"/>
+  <rect x="322" y="492" width="62" height="10" rx="5" fill="#BFA2DB"/>
+
+  <!-- ─── Card 4: Retrieval y extras ─── -->
+  <rect x="476" y="384" width="380" height="140" rx="18" fill="#FFFFFF" stroke="#E0D5CE"/>
+
+  <circle cx="522" cy="454" r="24" fill="#6D8FA4"/>
+  <text x="522" y="461" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">4</text>
+
+  <text x="560" y="434" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">Retrieval y extras</text>
+  <text x="560" y="457" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">Recuperacion en archivo,</text>
+  <text x="560" y="474" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">replicacion y servicios anexos.</text>
+
+  <!-- Bar indicator -->
+  <rect x="560" y="492" width="184" height="10" rx="5" fill="#6D8FA4"/>
+  <rect x="750" y="492" width="50" height="10" rx="5" fill="#BFA2DB"/>
+
+  <!-- Legend -->
+  <circle cx="840" cy="218" r="6" fill="#6D8FA4"/>
+  <text x="852" y="222" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="11">Impacto alto</text>
+  <circle cx="840" cy="236" r="6" fill="#BFA2DB"/>
+  <text x="852" y="240" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="11">Impacto variable</text>
+</svg>

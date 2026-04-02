@@ -1,0 +1,111 @@
+<svg width="920" height="620" viewBox="0 0 920 620" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="arch-title arch-desc">
+  <title id="arch-title">Arquitectura por dominios con Amazon S3</title>
+  <desc id="arch-desc">Modelo por carriles con entradas, dominio S3 y salidas conectadas por flechas.</desc>
+
+  <defs>
+    <linearGradient id="ar-bg" x1="44" y1="32" x2="884" y2="586" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8F5F2"/>
+    </linearGradient>
+    <linearGradient id="ar-core" x1="338" y1="150" x2="582" y2="518" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8EFF4"/>
+      <stop offset="1" stop-color="#DDE8EE"/>
+    </linearGradient>
+    <marker id="ar-arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6D8FA4"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="920" height="620" rx="34" fill="#FAF7F5"/>
+  <rect x="34" y="32" width="852" height="556" rx="28" fill="url(#ar-bg)" stroke="#E7D9D1"/>
+
+  <!-- Title -->
+  <text x="64" y="82" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700">Arquitectura de referencia con Amazon S3</text>
+  <text x="64" y="114" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="15">Separación por dominios para escalar, proteger y operar sin fricción.</text>
+
+  <!-- Column labels -->
+  <text x="186" y="148" fill="#6D8FA4" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.6" text-anchor="middle">ENTRADAS</text>
+  <text x="460" y="148" fill="#6D8FA4" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.6" text-anchor="middle">DOMINIO S3</text>
+  <text x="734" y="148" fill="#6D8FA4" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.6" text-anchor="middle">SALIDAS</text>
+
+  <!-- ─── Left column: Entradas ─── -->
+  <rect x="64" y="160" width="244" height="368" rx="20" fill="#FFFFFF" stroke="#E0D5CE"/>
+
+  <!-- Entrada card 1: Cliente web -->
+  <rect x="84" y="184" width="204" height="92" rx="14" fill="#FAF7F5" stroke="#E0D5CE"/>
+  <text x="106" y="220" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Cliente web</text>
+  <text x="106" y="244" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">Carga de assets</text>
+  <text x="106" y="262" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">y consumo de contenido.</text>
+
+  <!-- Entrada card 2: Backend API -->
+  <rect x="84" y="290" width="204" height="92" rx="14" fill="#FAF7F5" stroke="#E0D5CE"/>
+  <text x="106" y="326" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Backend API</text>
+  <text x="106" y="350" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">Archivos privados</text>
+  <text x="106" y="368" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">y adjuntos firmados.</text>
+
+  <!-- Entrada card 3: Pipelines -->
+  <rect x="84" y="396" width="204" height="92" rx="14" fill="#FAF7F5" stroke="#E0D5CE"/>
+  <text x="106" y="432" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Pipelines</text>
+  <text x="106" y="456" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">ETL, logs</text>
+  <text x="106" y="474" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">y carga histórica.</text>
+
+  <!-- ─── Connector arrows: Entradas → S3 ─── -->
+  <line x1="309" y1="230" x2="335" y2="230" stroke="#6D8FA4" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ar-arrow)"/>
+  <line x1="309" y1="336" x2="335" y2="336" stroke="#6D8FA4" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ar-arrow)"/>
+  <line x1="309" y1="442" x2="335" y2="442" stroke="#6D8FA4" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ar-arrow)"/>
+
+  <!-- ─── Center: Dominio S3 ─── -->
+  <rect x="338" y="160" width="244" height="368" rx="24" fill="url(#ar-core)" stroke="#6D8FA4" stroke-width="2"/>
+
+  <text x="460" y="202" fill="#6D8FA4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="2">DOMINIO S3</text>
+  <text x="460" y="242" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle">Amazon S3</text>
+
+  <rect x="360" y="260" width="200" height="52" rx="14" fill="#FFFFFF" stroke="#D4C5BC"/>
+  <text x="460" y="292" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Buckets por contexto</text>
+
+  <!-- Bucket type chips -->
+  <rect x="360" y="326" width="92" height="52" rx="12" fill="#FFFFFF" stroke="#6D8FA4"/>
+  <rect x="466" y="326" width="92" height="52" rx="12" fill="#FFFFFF" stroke="#6D8FA4"/>
+  <text x="406" y="349" fill="#6D8FA4" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="0.8">PÚBLICO</text>
+  <text x="406" y="366" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Assets</text>
+  <text x="512" y="349" fill="#6D8FA4" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="0.8">PRIVADO</text>
+  <text x="512" y="366" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Adjuntos</text>
+
+  <rect x="360" y="392" width="92" height="52" rx="12" fill="#FFFFFF" stroke="#6D8FA4"/>
+  <rect x="466" y="392" width="92" height="52" rx="12" fill="#FFFFFF" stroke="#6D8FA4"/>
+  <text x="406" y="415" fill="#6D8FA4" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="0.8">ANALÍTICA</text>
+  <text x="406" y="432" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Lake</text>
+  <text x="512" y="415" fill="#6D8FA4" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="0.8">HISTÓRICO</text>
+  <text x="512" y="432" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Archivo</text>
+
+  <!-- ─── Connector arrows: S3 → Salidas ─── -->
+  <line x1="583" y1="230" x2="609" y2="230" stroke="#6D8FA4" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ar-arrow)"/>
+  <line x1="583" y1="336" x2="609" y2="336" stroke="#6D8FA4" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ar-arrow)"/>
+  <line x1="583" y1="442" x2="609" y2="442" stroke="#6D8FA4" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ar-arrow)"/>
+
+  <!-- ─── Right column: Salidas ─── -->
+  <rect x="612" y="160" width="244" height="368" rx="20" fill="#FFFFFF" stroke="#E0D5CE"/>
+
+  <!-- Salida card 1: CloudFront CDN -->
+  <rect x="632" y="184" width="204" height="92" rx="14" fill="#FAF7F5" stroke="#E0D5CE"/>
+  <text x="654" y="220" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">CloudFront CDN</text>
+  <text x="654" y="244" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">Entrega rápida</text>
+  <text x="654" y="262" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">y global de contenido.</text>
+
+  <!-- Salida card 2: Procesos async -->
+  <rect x="632" y="290" width="204" height="92" rx="14" fill="#FAF7F5" stroke="#E0D5CE"/>
+  <text x="654" y="326" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Procesos async</text>
+  <text x="654" y="350" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">Eventos, colas</text>
+  <text x="654" y="368" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">y funciones Lambda.</text>
+
+  <!-- Salida card 3: Analitica -->
+  <rect x="632" y="396" width="204" height="92" rx="14" fill="#FAF7F5" stroke="#E0D5CE"/>
+  <text x="654" y="432" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Analítica y ML</text>
+  <text x="654" y="456" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">BI, lakehouse</text>
+  <text x="654" y="474" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">y entrenamiento.</text>
+
+  <!-- ─── Bottom governance strip ─── -->
+  <rect x="64" y="546" width="792" height="28" rx="14" fill="#F0EBE6" stroke="#E0D5CE"/>
+  <text x="88" y="565" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="13">Controles base: cifrado SSE, versioning, políticas IAM, tagging y observabilidad con CloudTrail.</text>
+</svg>

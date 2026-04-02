@@ -1,0 +1,109 @@
+<svg width="920" height="520" viewBox="0 0 920 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rm-title rm-desc">
+  <title id="rm-title">Ruta iterativa de aprendizaje S3</title>
+  <desc id="rm-desc">Cinco etapas progresivas para dominar Amazon S3, de operación básica a gobierno avanzado.</desc>
+
+  <defs>
+    <linearGradient id="rm-bg" x1="44" y1="32" x2="884" y2="488" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8F5F2"/>
+    </linearGradient>
+    <!-- Gradient for active stage highlight -->
+    <linearGradient id="rm-stage-active" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#E8EFF4"/>
+      <stop offset="1" stop-color="#DDE8EE"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="920" height="520" rx="34" fill="#FAF7F5"/>
+  <rect x="34" y="32" width="852" height="456" rx="28" fill="url(#rm-bg)" stroke="#E7D9D1"/>
+
+  <!-- Title -->
+  <text x="64" y="82" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700">Ruta iterativa para dominar Amazon S3</text>
+  <text x="64" y="114" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="15">Cada etapa refuerza fundamentos, seguridad y decisiones arquitectónicas.</text>
+
+  <!-- Progress connector line (behind cards) -->
+  <line x1="126" y1="208" x2="794" y2="208" stroke="#E0D5CE" stroke-width="2" stroke-dasharray="6 4"/>
+
+  <!-- ─── Stage 1: Base ─── -->
+  <rect x="48" y="158" width="156" height="278" rx="18" fill="#FFFFFF" stroke="#E0D5CE"/>
+  <circle cx="126" cy="208" r="22" fill="#6D8FA4"/>
+  <text x="126" y="215" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle">1</text>
+  <text x="76" y="252" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Base</text>
+  <text x="76" y="278" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Bucket, objeto, key.</text>
+  <text x="76" y="298" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Carga y descarga.</text>
+  <text x="76" y="318" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Versioning inicial.</text>
+  <!-- Badge — FIXED: was dark text on blue, now white text -->
+  <rect x="72" y="394" width="108" height="24" rx="12" fill="#6D8FA4"/>
+  <text x="126" y="410" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Operación mínima</text>
+
+  <!-- Progress arrow 1→2 -->
+  <polygon points="208,202 220,208 208,214" fill="#6D8FA4"/>
+
+  <!-- ─── Stage 2: Operacion ─── -->
+  <rect x="222" y="158" width="156" height="278" rx="18" fill="#FFFFFF" stroke="#E0D5CE"/>
+  <circle cx="300" cy="208" r="22" fill="#6D8FA4"/>
+  <text x="300" y="215" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle">2</text>
+  <text x="250" y="252" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Operación</text>
+  <text x="250" y="278" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">CLI y consola AWS.</text>
+  <text x="250" y="298" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Prefijos y orden.</text>
+  <text x="250" y="318" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Lifecycle inicial.</text>
+  <!-- Badge -->
+  <rect x="246" y="394" width="108" height="24" rx="12" fill="#6D8FA4"/>
+  <text x="300" y="410" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Eficiencia</text>
+
+  <!-- Progress arrow 2→3 -->
+  <polygon points="382,202 394,208 382,214" fill="#6D8FA4"/>
+
+  <!-- ─── Stage 3: Seguridad ─── -->
+  <rect x="396" y="158" width="156" height="278" rx="18" fill="#FFFFFF" stroke="#6D8FA4" stroke-width="1.5"/>
+  <circle cx="474" cy="208" r="22" fill="#6D8FA4"/>
+  <text x="474" y="215" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle">3</text>
+  <text x="424" y="252" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Seguridad</text>
+  <text x="424" y="278" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">IAM y políticas.</text>
+  <text x="424" y="298" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Cifrado y acceso.</text>
+  <text x="424" y="318" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">URL prefirmada.</text>
+  <!-- Badge -->
+  <rect x="420" y="394" width="108" height="24" rx="12" fill="#6D8FA4"/>
+  <text x="474" y="410" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Control</text>
+
+  <!-- Progress arrow 3→4 -->
+  <polygon points="556,202 568,208 556,214" fill="#6D8FA4"/>
+
+  <!-- ─── Stage 4: Arquitectura ─── -->
+  <rect x="570" y="158" width="156" height="278" rx="18" fill="#FFFFFF" stroke="#E0D5CE"/>
+  <circle cx="648" cy="208" r="22" fill="#6D8FA4"/>
+  <text x="648" y="215" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle">4</text>
+  <text x="598" y="252" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Arquitectura</text>
+  <text x="598" y="278" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Patrones útiles.</text>
+  <text x="598" y="298" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Antipatrones.</text>
+  <text x="598" y="318" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Eventos y flujos.</text>
+  <!-- Badge -->
+  <rect x="594" y="394" width="108" height="24" rx="12" fill="#6D8FA4"/>
+  <text x="648" y="410" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Diseño</text>
+
+  <!-- Progress arrow 4→5 -->
+  <polygon points="730,202 742,208 730,214" fill="#6D8FA4"/>
+
+  <!-- ─── Stage 5: Gobierno ─── -->
+  <rect x="744" y="158" width="156" height="278" rx="18" fill="#FFFFFF" stroke="#E0D5CE"/>
+  <circle cx="822" cy="208" r="22" fill="#6D8FA4"/>
+  <text x="822" y="215" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle">5</text>
+  <text x="772" y="252" fill="#3E3A39" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Gobierno</text>
+  <text x="772" y="278" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Costeo por uso.</text>
+  <text x="772" y="298" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Tagging y monitoreo.</text>
+  <text x="772" y="318" fill="#6B6461" font-family="Inter, Arial, sans-serif" font-size="12">Escala sostenible.</text>
+  <!-- Badge -->
+  <rect x="768" y="394" width="108" height="24" rx="12" fill="#6D8FA4"/>
+  <text x="822" y="410" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Madurez</text>
+
+  <!-- Level labels below -->
+  <text x="204" y="464" fill="#9A8F8B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">BÁSICO</text>
+  <text x="474" y="464" fill="#6D8FA4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">INTERMEDIO</text>
+  <text x="744" y="464" fill="#9A8F8B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">AVANZADO</text>
+
+  <!-- Bracket lines for level labels -->
+  <line x1="76" y1="452" x2="332" y2="452" stroke="#E0D5CE" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="424" y1="452" x2="524" y2="452" stroke="#6D8FA4" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="614" y1="452" x2="876" y2="452" stroke="#E0D5CE" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

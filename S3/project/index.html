@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Amazon S3 explicado para Arquitectura de Software: fundamentos, flujo de datos, arquitectura, gobierno y costos." />
+  <title>Amazon S3 | Arquitectura de Software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" id="top">
+    <div class="container nav-shell">
+      <a class="brand" href="#hero" aria-label="Ir al inicio">
+        <span class="brand-mark">S3</span>
+        <span class="brand-copy">
+          <strong>Amazon S3</strong>
+          <small>Almacenamiento de objetos en AWS</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir navegación">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#hero">Inicio</a>
+        <a href="#paneles">Guion</a>
+        <a href="#paneles" data-open-topic="fuentes">Fuentes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero section" id="hero">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">Amazon Web Services</p>
+          <h1>Amazon S3 en arquitectura de software</h1>
+          <p class="hero-lead">
+            Amazon S3 no es solo un lugar para guardar archivos. Es una capa de almacenamiento de objetos que permite
+            entregar contenido, desacoplar binarios, activar procesos y gobernar datos a escala.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#paneles" data-open-topic="fundamentos">Ver fundamentos</a>
+            <a class="button button-secondary" href="#paneles" data-open-topic="arquitectura">Ver arquitectura</a>
+          </div>
+          <div class="hero-facts">
+            <article class="fact-card">
+              <span class="fact-label">Almacena</span>
+              <strong>Objetos a escala</strong>
+              <p>Buckets, objetos, claves y metadatos accesibles por API.</p>
+            </article>
+            <article class="fact-card">
+              <span class="fact-label">Integra</span>
+              <strong>Flujos modernos</strong>
+              <p>CDN, cargas directas, eventos y consumo analítico posterior.</p>
+            </article>
+            <article class="fact-card">
+              <span class="fact-label">Gobierna</span>
+              <strong>Acceso y ciclo de vida</strong>
+              <p>IAM, versionado, ciclo de vida, cifrado y control por dominio.</p>
+            </article>
+          </div>
+        </div>
+
+        <figure class="hero-visual frame-card">
+          <img src="img/s3-flow.svg" alt="Diagrama de Amazon S3 conectando aplicación, almacenamiento y consumo de datos" />
+          <figcaption>Lectura rápida: S3 conecta la entrada de datos, el almacenamiento y la salida hacia otros consumidores.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="tabs-shell section" id="paneles">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Guion expositivo</p>
+          <h2>De qué hablar cuando presentes Amazon S3</h2>
+          <p>El recorrido prioriza ideas defendibles en clase: qué es S3, cómo entra y sale la información, cómo se integra, cómo se aprende, cómo se cobra y cómo cerrar con una conclusión sólida.</p>
+        </div>
+
+        <div class="topic-tabs" role="tablist" aria-label="Temas principales sobre Amazon S3">
+          <button class="topic-tab is-active" id="tab-fundamentos" data-topic="fundamentos" role="tab" aria-selected="true" aria-controls="panel-fundamentos" tabindex="0">Fundamentos</button>
+          <button class="topic-tab" id="tab-flujo" data-topic="flujo" role="tab" aria-selected="false" aria-controls="panel-flujo" tabindex="-1">Casos de uso</button>
+          <button class="topic-tab" id="tab-arquitectura" data-topic="arquitectura" role="tab" aria-selected="false" aria-controls="panel-arquitectura" tabindex="-1">Arquitectura</button>
+          <button class="topic-tab" id="tab-costos" data-topic="costos" role="tab" aria-selected="false" aria-controls="panel-costos" tabindex="-1">Costos</button>
+          <button class="topic-tab" id="tab-ruta" data-topic="ruta" role="tab" aria-selected="false" aria-controls="panel-ruta" tabindex="-1">Ruta de aprendizaje</button>
+          <button class="topic-tab" id="tab-cierre" data-topic="cierre" role="tab" aria-selected="false" aria-controls="panel-cierre" tabindex="-1">Cierre</button>
+          <button class="topic-tab" id="tab-fuentes" data-topic="fuentes" role="tab" aria-selected="false" aria-controls="panel-fuentes" tabindex="-1">Fuentes</button>
+        </div>
+
+        <div class="topic-panels">
+          <article class="topic-panel is-active" id="panel-fundamentos" role="tabpanel" aria-labelledby="tab-fundamentos">
+            <div class="panel-intro-block">
+              <p class="panel-kicker">1. Fundamentos</p>
+              <h3>Qué es Amazon S3 y por qué no es un sistema de archivos</h3>
+              <p>Amazon S3 es un servicio de almacenamiento de objetos. Guarda datos dentro de buckets y cada objeto se identifica por una clave o key, no por carpetas físicas ni por un sistema de archivos tradicional.</p>
+            </div>
+            <div class="panel-grid two-column">
+              <div class="stack">
+                <article class="content-card">
+                  <h4>Definición corta</h4>
+                  <p>Permite almacenar y recuperar cualquier cantidad de datos con acceso por API, alta durabilidad, seguridad configurable y escalabilidad sin administrar discos o servidores.</p>
+                </article>
+                <article class="content-card">
+                  <h4>Qué debes explicar</h4>
+                  <ul class="bullet-list">
+                    <li><strong>Bucket:</strong> contenedor donde se almacenan los objetos.</li>
+                    <li><strong>Objeto:</strong> archivo o dato con contenido y metadatos.</li>
+                    <li><strong>Key o clave:</strong> identificador único del objeto dentro del bucket.</li>
+                    <li><strong>Prefijo (prefix):</strong> convención que simula carpetas, pero no crea jerarquía real.</li>
+                    <li><strong>Acceso:</strong> lectura y escritura por HTTP o API, por ejemplo con operaciones PUT y GET.</li>
+                  </ul>
+                </article>
+                <article class="content-card">
+                  <h4>Caso de uso: repositorio académico</h4>
+                  <p>Una universidad guarda material de clase en un bucket por facultad y organiza los archivos por asignatura y semestre.</p>
+                  <ul class="bullet-list compact-list">
+                    <li><strong>Entrada:</strong> docentes suben guías, PDFs y rúbricas.</li>
+                    <li><strong>Consulta:</strong> estudiantes acceden por URL según permisos.</li>
+                    <li><strong>Aprendizaje clave:</strong> la “ruta” visible es la clave del objeto, no una carpeta física real.</li>
+                  </ul>
+                </article>
+              </div>
+              <aside class="highlight-card">
+                <h4>Analogía útil</h4>
+                <p>Piensa en S3 como una bodega inteligente: cada archivo es un paquete, cada paquete tiene una guía y la ubicación visible se organiza por nombres, no por estantes físicos que tú recorras.</p>
+                <div class="mini-model">
+                  <span>Bucket = contenedor</span>
+                  <span>Objeto = dato + metadata</span>
+                  <span>Clave o prefijo = ruta lógica</span>
+                </div>
+                <p class="micro-summary"><strong>Idea fuerza:</strong> En S3 sí parece haber carpetas, pero en realidad existe un espacio plano de objetos con nombres que simulan jerarquía.</p>
+              </aside>
+            </div>
+          </article>
+
+          <article class="topic-panel" id="panel-flujo" role="tabpanel" aria-labelledby="tab-flujo" hidden>
+            <div class="panel-intro-block">
+              <p class="panel-kicker">2. Casos de uso</p>
+              <h3>Casos de uso de entradas y salidas en Amazon S3</h3>
+              <p>Este bloque muestra aplicabilidad real: qué tipo de dato entra a S3 y qué componentes lo consumen después dentro de una solución de software.</p>
+            </div>
+            <div class="panel-grid two-column">
+              <article class="content-card">
+                <h4>Entradas (aplicabilidad real)</h4>
+                <ul class="bullet-list compact-list">
+                  <li><strong>Públicos:</strong> un PDF de convocatoria se publica para descarga abierta.</li>
+                  <li><strong>Assets:</strong> imágenes, CSS y JavaScript del landing institucional.</li>
+                  <li><strong>Privados:</strong> certificados y anexos de estudiantes con acceso por rol.</li>
+                  <li><strong>Analítica:</strong> logs de uso y eventos de navegación para BI.</li>
+                  <li><strong>Histórico:</strong> actas y soportes antiguos para retención y auditoría.</li>
+                </ul>
+              </article>
+              <article class="content-card">
+                <h4>Salidas (aplicabilidad real)</h4>
+                <ul class="bullet-list compact-list">
+                  <li><strong>CloudFront CDN:</strong> entrega contenido rápido a estudiantes en varias ciudades.</li>
+                  <li><strong>Procesos asíncronos:</strong> al subir un archivo se dispara validación o notificación.</li>
+                  <li><strong>Analítica y ML:</strong> dashboards académicos consumen datasets consolidados.</li>
+                  <li><strong>Aplicaciones internas:</strong> microservicios consultan y escriben objetos según IAM.</li>
+                </ul>
+              </article>
+            </div>
+            <article class="content-card compact-top">
+              <h4>Caso real integrado: portal académico</h4>
+              <ol class="step-list">
+                <li>El landing y sus recursos públicos se sirven desde S3.</li>
+                <li>Los estudiantes cargan documentos privados de matrícula y bienestar.</li>
+                <li>La plataforma registra eventos y logs en S3 para análisis institucional.</li>
+                <li>La evidencia de años anteriores se mueve a histórico por retención.</li>
+                <li>CloudFront acelera la entrega y procesos asíncronos validan cargas.</li>
+                <li>Portales y microservicios internos consumen objetos según su rol IAM.</li>
+              </ol>
+            </article>
+            <p class="tab-conclusion"><strong>En simple:</strong> En un caso real, S3 recibe datos de múltiples fuentes y los convierte en distribución, automatización y analítica para toda la arquitectura.</p>
+          </article>
+
+          <article class="topic-panel" id="panel-arquitectura" role="tabpanel" aria-labelledby="tab-arquitectura" hidden>
+            <div class="panel-intro-block">
+              <p class="panel-kicker">3. Arquitectura</p>
+              <h3>Cómo encaja en una arquitectura de software</h3>
+              <p>S3 aparece cuando el sistema necesita una capa compartida entre captura, almacenamiento, distribución y procesamiento posterior.</p>
+            </div>
+            <figure class="frame-card large-visual">
+              <img src="img/s3-architecture.svg" alt="Diagrama de arquitectura con cliente, API, Amazon S3 y consumidores posteriores" />
+              <figcaption>S3 funciona como capa común entre la entrada, el almacenamiento y el consumo posterior de datos.</figcaption>
+            </figure>
+            <figure class="frame-card large-visual compact-top">
+              <img src="img/s3-security-governance.svg" alt="Resumen visual de seguridad y gobierno en Amazon S3" />
+              <figcaption>Resumen práctico: seguridad para proteger acceso y gobierno para controlar retención, trazabilidad y costo.</figcaption>
+            </figure>
+            <div class="card-mosaic three-up compact-top">
+              <article class="content-card">
+                <h4>Patrones recomendados</h4>
+                <ul class="bullet-list compact-list">
+                  <li>Origen de assets con CDN.</li>
+                  <li>Carga directa con URL prefirmada.</li>
+                  <li>Data lake por capas.</li>
+                  <li>Eventos que disparan procesos.</li>
+                </ul>
+              </article>
+              <article class="content-card caution-card">
+                <h4>Antipatrones</h4>
+                <ul class="bullet-list compact-list">
+                  <li>Tratar S3 como filesystem POSIX.</li>
+                  <li>Usar un bucket público por comodidad.</li>
+                  <li>Mezclar entornos y dominios sin separación.</li>
+                  <li>Olvidar reglas de ciclo de vida y costos de solicitudes.</li>
+                </ul>
+              </article>
+              <article class="content-card">
+                <h4>Decisiones clave</h4>
+                <ul class="bullet-list compact-list">
+                  <li>Separar buckets por dominio o entorno.</li>
+                  <li>Diseñar acceso con IAM y políticas.</li>
+                  <li>Definir nombres, tags y responsables.</li>
+                  <li>Usar S3 para desacoplar binarios del backend transaccional.</li>
+                </ul>
+              </article>
+            </div>
+            <article class="content-card">
+              <h4>Caso de uso de arquitectura orientada a eventos</h4>
+              <p>Cuando un estudiante sube una evidencia al portal, S3 activa procesos sin bloquear la aplicación principal.</p>
+              <ul class="bullet-list compact-list">
+                <li><strong>Paso 1:</strong> se almacena el archivo en S3.</li>
+                <li><strong>Paso 2:</strong> un evento notifica a un proceso asíncrono.</li>
+                <li><strong>Paso 3:</strong> se valida formato, se genera trazabilidad y se actualiza el sistema académico.</li>
+              </ul>
+            </article>
+            <p class="tab-conclusion"><strong>En simple:</strong> S3 aporta valor cuando se diseña como capa común de objetos y no como un disco improvisado dentro del sistema.</p>
+          </article>
+
+          <article class="topic-panel" id="panel-costos" role="tabpanel" aria-labelledby="tab-costos" hidden>
+            <div class="panel-intro-block">
+              <p class="panel-kicker">4. Costos</p>
+              <h3>Cómo se cobra Amazon S3 y cómo tomar mejores decisiones</h3>
+              <p>El costo de S3 depende del patrón de uso. La decisión correcta no es “la clase más barata”, sino la clase adecuada para el acceso real.</p>
+            </div>
+            <section class="frame-card cost-simulator" aria-labelledby="cost-sim-title">
+              <div class="cost-sim-head">
+                <div>
+                  <p class="panel-kicker">Simulación visual</p>
+                  <h4 id="cost-sim-title">Gráfico interactivo del costo relativo</h4>
+                  <p>Mueve el control para ver cómo cambia el peso relativo de almacenamiento, solicitudes, recuperación y transferencia según el patrón de acceso.</p>
+                </div>
+                <div class="cost-sim-badge">
+                  <span id="costScenarioLabel">Respaldo activo</span>
+                  <small id="costScenarioHint">Lecturas ocasionales y recuperación moderada.</small>
+                </div>
+              </div>
+
+              <div class="cost-range-shell">
+                <div class="cost-range-top" aria-hidden="true">
+                  <span>Archivo frío</span>
+                  <span>Consumo intensivo</span>
+                </div>
+                <input class="cost-range" id="costRange" type="range" min="0" max="3" step="1" value="1" aria-label="Control para simular el patrón de acceso en Amazon S3" aria-valuemin="0" aria-valuemax="3" aria-valuenow="1" />
+                <div class="cost-range-steps" aria-hidden="true">
+                  <span>Frío</span>
+                  <span>Respaldo</span>
+                  <span>Web</span>
+                  <span>Intensivo</span>
+                </div>
+                <div class="cost-step-pills" role="group" aria-label="Seleccionar escenario de costos">
+                  <button type="button" class="cost-step-pill" data-cost-step="0" aria-pressed="false">Archivo frío</button>
+                  <button type="button" class="cost-step-pill" data-cost-step="1" aria-pressed="true">Respaldo activo</button>
+                  <button type="button" class="cost-step-pill" data-cost-step="2" aria-pressed="false">Contenido web</button>
+                  <button type="button" class="cost-step-pill" data-cost-step="3" aria-pressed="false">Consumo intensivo</button>
+                </div>
+                <div class="cost-range-actions">
+                  <button type="button" class="cost-step-btn" id="costPrev">Anterior</button>
+                  <button type="button" class="cost-step-btn" id="costNext">Siguiente</button>
+                </div>
+              </div>
+
+              <div class="cost-visual-shell">
+                <div class="cost-graph-card" aria-live="polite">
+                  <div class="cost-stack">
+                    <div class="cost-stack-bar">
+                      <span class="cost-segment cost-storage" id="costSegmentStorage"></span>
+                      <span class="cost-segment cost-requests" id="costSegmentRequests"></span>
+                      <span class="cost-segment cost-retrieval" id="costSegmentRetrieval"></span>
+                      <span class="cost-segment cost-transfer" id="costSegmentTransfer"></span>
+                    </div>
+                    <p class="cost-stack-caption">Composición relativa del costo en el escenario seleccionado.</p>
+                  </div>
+
+                  <div class="cost-metric-grid">
+                    <article class="cost-metric">
+                      <div class="cost-metric-copy">
+                        <strong>Almacenamiento</strong>
+                        <span id="costValueStorage">50%</span>
+                      </div>
+                      <div class="cost-meter">
+                        <span class="cost-meter-fill cost-storage" id="costBarStorage"></span>
+                      </div>
+                    </article>
+
+                    <article class="cost-metric">
+                      <div class="cost-metric-copy">
+                        <strong>Solicitudes</strong>
+                        <span id="costValueRequests">18%</span>
+                      </div>
+                      <div class="cost-meter">
+                        <span class="cost-meter-fill cost-requests" id="costBarRequests"></span>
+                      </div>
+                    </article>
+
+                    <article class="cost-metric">
+                      <div class="cost-metric-copy">
+                        <strong>Recuperación</strong>
+                        <span id="costValueRetrieval">10%</span>
+                      </div>
+                      <div class="cost-meter">
+                        <span class="cost-meter-fill cost-retrieval" id="costBarRetrieval"></span>
+                      </div>
+                    </article>
+
+                    <article class="cost-metric">
+                      <div class="cost-metric-copy">
+                        <strong>Transferencia</strong>
+                        <span id="costValueTransfer">22%</span>
+                      </div>
+                      <div class="cost-meter">
+                        <span class="cost-meter-fill cost-transfer" id="costBarTransfer"></span>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+
+                <aside class="cost-summary-panel">
+                  <span class="cost-summary-label">Índice relativo</span>
+                  <strong id="costTotalIndex">1.4x</strong>
+                  <p id="costScenarioSummary">Aquí el almacenamiento sigue pesando bastante, pero ya empiezan a crecer las solicitudes y la transferencia porque el dato no está totalmente congelado.</p>
+                  <ul class="cost-summary-list">
+                    <li><strong>Clase sugerida:</strong> <span id="costRecommendedClass">S3 Standard-IA o Intelligent-Tiering</span></li>
+                    <li><strong>Se encarece por:</strong> <span id="costPrimaryDriver">lecturas ocasionales, copias periódicas y algo de egreso</span></li>
+                  </ul>
+                  <p class="cost-note">Simulación didáctica con pesos relativos. Para precios reales se valida en la calculadora oficial de AWS.</p>
+                </aside>
+              </div>
+            </section>
+            <div class="card-mosaic three-up compact-top">
+              <article class="content-card">
+                <h4>Qué se paga</h4>
+                <ul class="bullet-list compact-list">
+                  <li>Almacenamiento por volumen y clase.</li>
+                  <li>Solicitudes API como PUT, GET o LIST.</li>
+                  <li>Recuperación en clases de archivo.</li>
+                  <li>Transferencia de salida y servicios asociados.</li>
+                </ul>
+              </article>
+              <article class="content-card">
+                <h4>Qué suele mover el costo</h4>
+                <ul class="bullet-list compact-list">
+                  <li>Frecuencia real de acceso.</li>
+                  <li>Cantidad de objetos pequeños.</li>
+                  <li>Egreso de datos fuera de AWS.</li>
+                  <li>Retención, replicación y ciclo de vida.</li>
+                </ul>
+              </article>
+              <article class="content-card">
+                <h4>Cómo optimizar</h4>
+                <ul class="bullet-list compact-list">
+                  <li>Elegir clase según patrón real de acceso.</li>
+                  <li>Aplicar ciclo de vida por antigüedad del dato.</li>
+                  <li>Reducir egreso con caché y distribución eficiente.</li>
+                  <li>Usar etiquetado para identificar servicios costosos.</li>
+                </ul>
+              </article>
+            </div>
+            <article class="content-card compact-top">
+              <h4>Caso de uso de decisión por costo</h4>
+              <p>Una coordinación tecnológica clasifica la información según frecuencia de acceso para pagar solo lo necesario.</p>
+              <ul class="bullet-list compact-list">
+                <li><strong>Documentos activos:</strong> se prioriza disponibilidad inmediata.</li>
+                <li><strong>Respaldos mensuales:</strong> se envían a clases de menor costo.</li>
+                <li><strong>Histórico de auditoría:</strong> se conserva en almacenamiento de archivo.</li>
+              </ul>
+            </article>
+            <p class="tab-conclusion"><strong>En simple:</strong> El costo de S3 se controla alineando cada dato con su patrón de acceso, su tiempo de retención y su necesidad real de disponibilidad.</p>
+          </article>
+
+          <article class="topic-panel" id="panel-ruta" role="tabpanel" aria-labelledby="tab-ruta" hidden>
+            <div class="panel-intro-block">
+              <p class="panel-kicker">5. Ruta de aprendizaje</p>
+              <h3>Plan iterativo para dominar S3 por etapas</h3>
+              <p>Esta ruta permite practicar de manera progresiva. El usuario puede mover los controles y ver qué estudiar, qué practicar y qué entregar en cada nivel.</p>
+            </div>
+            <figure class="frame-card large-visual">
+              <img src="img/s3-roadmap.svg" alt="Ruta iterativa de aprendizaje de Amazon S3 con cinco etapas: Base, Operación, Seguridad, Arquitectura y Gobierno" />
+              <figcaption>Vista general de las cinco etapas: de la operación básica al gobierno avanzado. El simulador debajo permite explorar cada nivel en detalle.</figcaption>
+            </figure>
+
+            <section class="frame-card route-simulator" aria-labelledby="route-sim-title">
+              <div class="route-head">
+                <div>
+                  <p class="panel-kicker">Simulación de progreso</p>
+                  <h4 id="route-sim-title">Ruta interactiva de básico a avanzado</h4>
+                  <p>Selecciona una etapa para ver objetivos, prácticas y entregables sugeridos para exposición o proyecto.</p>
+                </div>
+                <div class="route-stage-badge">
+                  <span id="routeStageLabel">Intermedio</span>
+                  <small id="routeStageDuration">Semanas 3 y 4</small>
+                </div>
+              </div>
+
+              <div class="route-controls">
+                <div class="route-range-top" aria-hidden="true">
+                  <span>Inicio</span>
+                  <span>Proyecto final</span>
+                </div>
+                <input class="route-range" id="routeRange" type="range" min="0" max="3" step="1" value="1" aria-label="Control para navegar la ruta de aprendizaje de Amazon S3" aria-valuemin="0" aria-valuemax="3" aria-valuenow="1" />
+                <div class="route-range-steps" aria-hidden="true">
+                  <span>Básico</span>
+                  <span>Intermedio</span>
+                  <span>Avanzado</span>
+                  <span>Aplicado</span>
+                </div>
+                <div class="route-step-pills" role="group" aria-label="Seleccionar etapa de aprendizaje">
+                  <button type="button" class="route-step-pill" data-route-step="0" aria-pressed="false">Básico</button>
+                  <button type="button" class="route-step-pill" data-route-step="1" aria-pressed="true">Intermedio</button>
+                  <button type="button" class="route-step-pill" data-route-step="2" aria-pressed="false">Avanzado</button>
+                  <button type="button" class="route-step-pill" data-route-step="3" aria-pressed="false">Aplicado</button>
+                </div>
+                <div class="route-actions">
+                  <button type="button" class="cost-step-btn" id="routePrev">Anterior</button>
+                  <button type="button" class="cost-step-btn" id="routeNext">Siguiente</button>
+                </div>
+              </div>
+
+              <div class="route-progress-track" aria-hidden="true">
+                <span class="route-progress-fill" id="routeProgressFill"></span>
+              </div>
+
+              <div class="route-content">
+                <article class="route-stage-card">
+                  <h5>Objetivo de etapa</h5>
+                  <p id="routeStageObjective">Diseñar acceso seguro y operar el ciclo de vida básico del bucket.</p>
+                  <h5>Conceptos clave</h5>
+                  <ul class="route-list" id="routeConceptList">
+                    <li>Políticas de bucket e IAM.</li>
+                    <li>Versionado y URL prefirmadas.</li>
+                    <li>Cifrado y separación por entorno.</li>
+                  </ul>
+                </article>
+                <article class="route-stage-card">
+                  <h5>Prácticas recomendadas</h5>
+                  <ul class="route-list" id="routePracticeList">
+                    <li>Crear un flujo de carga controlada desde frontend.</li>
+                    <li>Aplicar reglas de ciclo de vida por antigüedad.</li>
+                    <li>Registrar evidencias para sustentación técnica.</li>
+                  </ul>
+                  <div class="route-meta">
+                    <p><strong>Entregable:</strong> <span id="routeDeliverable">Demo de carga segura + política documentada.</span></p>
+                    <p><strong>Meta observable:</strong> <span id="routeMilestone">Explicas por qué usas URL prefirmadas y no bucket público.</span></p>
+                  </div>
+                </article>
+              </div>
+            </section>
+            <article class="content-card">
+              <h4>Caso de uso de aprendizaje por etapas</h4>
+              <p>Un equipo de estudiantes avanza en cuatro semanas de práctica aplicada con evidencias concretas.</p>
+              <ul class="bullet-list compact-list">
+                <li><strong>Básico:</strong> construyen un bucket y organizan objetos por prefijos.</li>
+                <li><strong>Intermedio:</strong> aplican control de acceso y versionado.</li>
+                <li><strong>Avanzado:</strong> conectan eventos para procesamiento automático.</li>
+                <li><strong>Aplicado:</strong> presentan un caso completo con decisión técnica y justificación de costo.</li>
+              </ul>
+            </article>
+            <p class="tab-conclusion"><strong>En simple:</strong> La ruta de aprendizaje funciona mejor cuando cada etapa tiene objetivo, práctica y evidencia concreta.</p>
+          </article>
+
+          <article class="topic-panel" id="panel-cierre" role="tabpanel" aria-labelledby="tab-cierre" hidden>
+            <div class="panel-intro-block">
+              <p class="panel-kicker">6. Cierre</p>
+              <h3>Conclusión para defender el valor de S3 en arquitectura</h3>
+              <p>Este cierre resume la idea central de la exposición: S3 no es solo almacenamiento, es una pieza de arquitectura que conecta entrada, proceso, salida y control.</p>
+            </div>
+            <div class="card-mosaic three-up">
+              <article class="content-card">
+                <h4>Qué es S3 en una frase</h4>
+                <p>Un servicio de almacenamiento de objetos, masivo y durable, accesible por API y diseñado para escalar sin administrar infraestructura.</p>
+              </article>
+              <article class="content-card">
+                <h4>Por qué impacta arquitectura</h4>
+                <p>Desacopla binarios, habilita integración con eventos, distribuye contenido y soporta analítica con un mismo punto de referencia.</p>
+              </article>
+              <article class="content-card">
+                <h4>Qué decisión deja la exposición</h4>
+                <p>Diseñar buckets, acceso y clases de almacenamiento según dominio y patrón de uso, no por conveniencia del momento.</p>
+              </article>
+            </div>
+            <article class="content-card">
+              <h4>Caso de uso de cierre expositivo</h4>
+              <p>El equipo cierra su presentación mostrando decisiones claras, riesgos controlados y trazabilidad del dato.</p>
+              <ul class="bullet-list compact-list">
+                <li><strong>Seguridad:</strong> acceso restringido por roles y políticas.</li>
+                <li><strong>Operación:</strong> versionado y ciclo de vida definidos.</li>
+                <li><strong>Sustentación:</strong> cada decisión se conecta con arquitectura, costo y valor del negocio.</li>
+              </ul>
+            </article>
+            <p class="tab-conclusion"><strong>En simple:</strong> Amazon S3 almacena, integra y gobierna; su valor aparece cuando se diseña con criterio arquitectónico y no como un repositorio improvisado.</p>
+            <div class="closing-strip">
+              <p><strong>Mensaje final para exponer:</strong> Amazon S3 es importante porque permite almacenar a escala, integrar servicios y mantener control sobre datos, riesgos y costos.</p>
+            </div>
+          </article>
+
+          <article class="topic-panel" id="panel-fuentes" role="tabpanel" aria-labelledby="tab-fuentes" hidden>
+            <div class="panel-intro-block">
+              <p class="panel-kicker">7. Fuentes</p>
+              <h3>Referencias oficiales para sustentar la exposición</h3>
+              <p>Estas fuentes de AWS te permiten validar conceptos, resolver preguntas en clase y justificar decisiones técnicas.</p>
+            </div>
+            <article class="content-card">
+              <ul class="references-list">
+                <li><a href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/Welcome.html" target="_blank" rel="noreferrer">AWS Docs ES - ¿Qué es Amazon S3?</a></li>
+                <li><a href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/UsingObjects.html" target="_blank" rel="noreferrer">AWS Docs ES - Información general de los objetos</a></li>
+                <li><a href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/object-keys.html" target="_blank" rel="noreferrer">AWS Docs ES - Claves y nombres de objetos</a></li>
+                <li><a href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/access-control-block-public-access.html" target="_blank" rel="noreferrer">AWS Docs ES - Bloqueo de acceso público</a></li>
+                <li><a href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/about-object-ownership.html" target="_blank" rel="noreferrer">AWS Docs ES - Object Ownership y ACL</a></li>
+                <li><a href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/storage-class-intro.html" target="_blank" rel="noreferrer">AWS Docs ES - Clases de almacenamiento</a></li>
+                <li><a href="https://aws.amazon.com/es/s3/pricing/" target="_blank" rel="noreferrer">AWS ES - Precios de Amazon S3</a></li>
+              </ul>
+            </article>
+            <p class="tab-conclusion"><strong>En simple:</strong> Dejar fuentes oficiales al cierre fortalece la exposición y transmite rigor técnico.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <strong>Amazon S3</strong>
+      <span>Servicio de almacenamiento de objetos en AWS</span>
+      <a class="back-top" href="#top">Volver arriba</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
